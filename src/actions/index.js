@@ -19,6 +19,17 @@ export const actionSaveExpenses = (value) => ({
   value,
 });
 
+export const actionGetCotacao = (objetoDespesa) => async (dispatch) => {
+  const response = await fetch('https://economia.awesomeapi.com.br/json/all');
+  const data = await response.json();
+  delete data.USDT;
+  const exchangeRates = data;
+  // console.log({ ...objetoDespesa, exchangeRates });
+  // console.log('retorno API: ', data);
+  // console.log('objeto despesa: ', objetoDespesa);
+  dispatch(actionSaveExpenses({ ...objetoDespesa, exchangeRates }));
+};
+
 export const actionGetCurrencies = () => async (dispatch) => {
   const response = await fetch('https://economia.awesomeapi.com.br/json/all');
   const data = await response.json();

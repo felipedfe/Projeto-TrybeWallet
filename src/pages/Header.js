@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 class Header extends React.Component {
   render() {
-    const { email } = this.props;
+    const { email, expensesList } = this.props;
+    // console.log(expensesList);
     return (
       <div className="header-container">
         <h3>Header</h3>
@@ -12,8 +13,11 @@ class Header extends React.Component {
           {email}
         </p>
         <p data-testid="total-field">
-          Despesa Total: R$
-          {0}
+          {expensesList.length > 0
+            ? expensesList
+              .reduce((acc, despesa) => acc + (parseFloat(despesa.value)
+            * parseFloat(despesa.exchangeRates[despesa.currency].ask)), 0).toFixed(2)
+            : <span>0</span>}
         </p>
         <p data-testid="header-currency-field">
           Câmbio:
@@ -27,6 +31,7 @@ class Header extends React.Component {
 
 const mapStateToProps = (state) => ({
   email: state.user.email,
+  expensesList: state.wallet.expenses,
 });
 
 export default connect(mapStateToProps)(Header);

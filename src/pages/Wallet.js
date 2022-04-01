@@ -1,17 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
-import { actionGetCurrencies, actionSaveExpenses } from '../actions';
+import { actionGetCurrencies, actionGetCotacao } from '../actions';
 
 class Wallet extends React.Component {
   constructor() {
     super();
     this.state = {
-      valor: '',
-      descricao: '',
-      moeda: 'USD',
-      metodoDePagamento: 'Dinheiro',
-      tipoDeDespesa: 'Alimentação',
+      value: '',
+      description: '',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
     };
   }
 
@@ -28,42 +28,44 @@ class Wallet extends React.Component {
   }
 
   onSubmitForm = (index) => {
-    const { saveFormData } = this.props;
-    saveFormData({ id: index, ...this.state });
-
-    console.log({ id: index, ...this.state });
+    const { fetchCotacao } = this.props;
+    this.setState({
+      value: '',
+      description: '',
+    });
+    fetchCotacao({ id: index, ...this.state });
   }
 
   render() {
     const { currenciesList, expenseIndex } = this.props;
-    const { valor,
-      descricao,
-      moeda,
-      metodoDePagamento,
-      tipoDeDespesa } = this.state;
+    const { value,
+      description,
+      currency,
+      method,
+      tag } = this.state;
 
     return (
       <div className="wallet-container">
         <Header />
         <h3>Wallet</h3>
         <fieldset>
-          <label htmlFor="valor">
+          <label htmlFor="value">
             Valor:
             <input
-              name="valor"
+              name="value"
               type="text"
-              value={ valor }
+              value={ value }
               onChange={ this.handleInputChange }
               data-testid="value-input"
             />
           </label>
 
-          <label htmlFor="descricao">
+          <label htmlFor="description">
             Descrição:
             <input
-              name="descricao"
+              name="description"
               type="text"
-              value={ descricao }
+              value={ description }
               onChange={ this.handleInputChange }
               data-testid="description-input"
             />
@@ -72,9 +74,10 @@ class Wallet extends React.Component {
           <label htmlFor="moeda">
             Moeda:
             <select
-              name="moeda"
+              name="currency"
               id="moeda"
-              value={ moeda }
+              data-testid="currency-input"
+              value={ currency }
               onChange={ this.handleInputChange }
             >
               {currenciesList.map((sigla) => (
@@ -83,11 +86,12 @@ class Wallet extends React.Component {
             </select>
           </label>
 
-          <label htmlFor="metodoDePagamento">
+          <label htmlFor="method-input">
             <select
               data-testid="method-input"
-              name="metodoDePagamento"
-              value={ metodoDePagamento }
+              id="method-input"
+              name="method"
+              value={ method }
               onChange={ this.handleInputChange }
             >
               <option value="Dinheiro">Dinheiro</option>
@@ -96,11 +100,12 @@ class Wallet extends React.Component {
             </select>
           </label>
 
-          <label htmlFor="tipoDeDespesa">
+          <label htmlFor="tag-input">
             <select
               data-testid="tag-input"
-              name="tipoDeDespesa"
-              value={ tipoDeDespesa }
+              id="tag-input"
+              name="tag"
+              value={ tag }
               onChange={ this.handleInputChange }
             >
               <option value="Alimentação">Alimentação</option>
@@ -130,7 +135,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchCurrencies: () => dispatch(actionGetCurrencies()),
-  saveFormData: (data) => dispatch(actionSaveExpenses(data)),
+  fetchCotacao: (data) => dispatch(actionGetCotacao(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Wallet);
