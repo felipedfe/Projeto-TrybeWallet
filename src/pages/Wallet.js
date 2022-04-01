@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
+import Table from '../components/Table';
 import { actionGetCurrencies, actionGetCotacao } from '../actions';
 
 class Wallet extends React.Component {
@@ -123,18 +124,7 @@ class Wallet extends React.Component {
             </button>
           </label>
         </fieldset>
-        <h3>Tabela</h3>
-        <tr>
-          <th>Descrição</th>
-          <th>Tag</th>
-          <th>Método de pagamento</th>
-          <th>Valor</th>
-          <th>Moeda</th>
-          <th>Câmbio utilizado</th>
-          <th>Valor convertido</th>
-          <th>Moeda de conversão</th>
-          <th>Editar/Excluir</th>
-        </tr>
+        <Table />
       </div>
     );
   }
