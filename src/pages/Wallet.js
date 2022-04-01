@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Header from './Header';
 import Table from '../components/Table';
 import { actionGetCurrencies, actionGetCotacao } from '../actions';
@@ -139,5 +140,12 @@ const mapDispatchToProps = (dispatch) => ({
   fetchCurrencies: () => dispatch(actionGetCurrencies()),
   fetchCotacao: (data) => dispatch(actionGetCotacao(data)),
 });
+
+Wallet.propTypes = {
+  currenciesList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  fetchCurrencies: PropTypes.func.isRequired,
+  fetchCotacao: PropTypes.func.isRequired,
+  expenseIndex: PropTypes.number.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Wallet);

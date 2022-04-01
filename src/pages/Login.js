@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { actionSaveEmail } from '../actions';
 
 class Login extends React.Component {
@@ -47,7 +48,7 @@ class Login extends React.Component {
 
   render() {
     const { email, senha, isDisabled } = this.state;
-    // console.log(this.props.history);
+
     return (
       <div className="login-container">
         <input
@@ -81,5 +82,10 @@ class Login extends React.Component {
 const mapDispatchToProps = (dispatch) => ({
   sendEmail: (email) => dispatch(actionSaveEmail(email)),
 });
+
+Login.propTypes = {
+  history: PropTypes.arrayOf(PropTypes.object).isRequired,
+  sendEmail: PropTypes.func.isRequired,
+};
 
 export default connect(null, mapDispatchToProps)(Login);

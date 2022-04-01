@@ -24,9 +24,6 @@ export const actionGetCotacao = (objetoDespesa) => async (dispatch) => {
   const data = await response.json();
   delete data.USDT;
   const exchangeRates = data;
-  // console.log({ ...objetoDespesa, exchangeRates });
-  // console.log('retorno API: ', data);
-  // console.log('objeto despesa: ', objetoDespesa);
   dispatch(actionSaveExpenses({ ...objetoDespesa, exchangeRates }));
 };
 
