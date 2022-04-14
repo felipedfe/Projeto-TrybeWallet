@@ -48,6 +48,12 @@ class Table extends React.Component {
                   >
                     Excluir
                   </button>
+                  <button
+                    type="button"
+                    onClick={ () => {} }
+                  >
+                    Editar
+                  </button>
                 </td>
               </tr>
             ))}

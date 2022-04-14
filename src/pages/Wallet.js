@@ -123,6 +123,7 @@ class Wallet extends React.Component {
             >
               Adicionar despesa
             </button>
+
           </label>
         </fieldset>
         <Table />
