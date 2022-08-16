@@ -49,9 +49,9 @@ class Wallet extends React.Component {
     return (
       <div className="wallet-container">
         <div className="title-container">
-          <span className="emoji" role="img">&#128176;</span>
+          <span className="emoji" role="img" aria-label="saco com cifrão">&#128176;</span>
           <h1 className="title">TRYBEWALLET</h1>
-          <span className="emoji" role="img">&#128184;</span>
+          <span className="emoji" role="img" aria-label="dinheiro voando">&#128184;</span>
         </div>
         <Header />
         <fieldset className="wallet-fieldset">
