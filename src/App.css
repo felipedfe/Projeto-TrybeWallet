@@ -1,41 +1,71 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  color: rgb(55, 55, 55);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.wallet-container {
+  padding: 100px;
 }
 
-@media ( prefers-reduced-motion : no-preference ) {
-
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.wallet-fieldset {
+  padding: 0.7rem;
+  font-weight: 700;
+  background-color: rgb(112, 200, 255);
 }
 
-.App-header {
-  align-items: center;
-  background-color: #282c34;
-  color: white;
+.header-container{
   display: flex;
-  flex-direction: column;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  padding: 0.7rem;
+  background-color: rgb(191, 230, 255);
+}
+
+
+.email-field, 
+.wallet-field {
+  margin-right: 1rem;
+  margin-bottom: 0;
+}
+
+.expenses-field, .currency-field {
+  margin-bottom: 0;
+}
+
+.currency-field {
+  margin-left: 0.3rem;
+}
+
+.add-btn {
+  margin-left: 1rem;
+}
+
+.table {
+  background-color: rgb(247, 247, 247);
+}
+
+.title-container {
+  display: flex;
   justify-content: center;
-  min-height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.title-container {
+  border: solid 3px rgb(191, 230, 255);
+  padding: 1rem;
 }
 
-@keyframes App-logo-spin {
+.title {
+  
+  font-size: 4rem;
+  font-weight: 900;
+  margin-right: 0.5rem;
+  color: rgb(83, 83, 83);
+  margin-bottom: 0;
+}
 
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
+.emoji {
+  font-size: 3.5rem;
+  
 }

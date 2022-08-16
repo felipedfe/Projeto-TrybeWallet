@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import '../App.css';
 import PropTypes from 'prop-types';
 
 class Header extends React.Component {
@@ -8,20 +9,21 @@ class Header extends React.Component {
 
     return (
       <div className="header-container">
-        <h3>Header</h3>
-        <p data-testid="email-field">
+        <p className="email-field">
           E-mail:
+          {' '}
           {email}
         </p>
-        <p data-testid="total-field">
+        <p className="expenses-field">
+          Despesa Total:
+          {' '}
           {expensesList.length > 0
             ? expensesList
               .reduce((acc, despesa) => acc + (parseFloat(despesa.value)
             * parseFloat(despesa.exchangeRates[despesa.currency].ask)), 0).toFixed(2)
             : <span>0</span>}
         </p>
-        <p data-testid="header-currency-field">
-          Câmbio:
+        <p className="currency-field">
           {' '}
           {'BRL'}
         </p>

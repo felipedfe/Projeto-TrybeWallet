@@ -31,11 +31,11 @@ class Wallet extends React.Component {
 
   onSubmitForm = (index) => {
     const { fetchCotacao } = this.props;
+    fetchCotacao({ id: index, ...this.state });
     this.setState({
       value: '',
       description: '',
     });
-    fetchCotacao({ id: index, ...this.state });
   }
 
   render() {
@@ -48,10 +48,14 @@ class Wallet extends React.Component {
 
     return (
       <div className="wallet-container">
+        <div className="title-container">
+          <span className="emoji" role="img">&#128176;</span>
+          <h1 className="title">TRYBEWALLET</h1>
+          <span className="emoji" role="img">&#128184;</span>
+        </div>
         <Header />
-        <h3>Wallet</h3>
-        <fieldset>
-          <label htmlFor="value">
+        <fieldset className="wallet-fieldset">
+          <label className="wallet-field" htmlFor="value">
             Valor:
             <input
               name="value"
@@ -62,7 +66,7 @@ class Wallet extends React.Component {
             />
           </label>
 
-          <label htmlFor="description">
+          <label className="wallet-field" htmlFor="description">
             Descrição:
             <input
               name="description"
@@ -73,7 +77,7 @@ class Wallet extends React.Component {
             />
           </label>
 
-          <label htmlFor="moeda">
+          <label className="wallet-field" htmlFor="moeda">
             Moeda:
             <select
               name="currency"
@@ -88,7 +92,7 @@ class Wallet extends React.Component {
             </select>
           </label>
 
-          <label htmlFor="method-input">
+          <label className="wallet-field" htmlFor="method-input">
             <select
               data-testid="method-input"
               id="method-input"
@@ -102,8 +106,9 @@ class Wallet extends React.Component {
             </select>
           </label>
 
-          <label htmlFor="tag-input">
+          <label className="wallet-field" htmlFor="tag-input">
             <select
+              className="wallet-field"
               data-testid="tag-input"
               id="tag-input"
               name="tag"
@@ -118,6 +123,7 @@ class Wallet extends React.Component {
             </select>
 
             <button
+              className="btn btn-primary add-btn"
               type="button"
               onClick={ () => this.onSubmitForm(expenseIndex) }
             >

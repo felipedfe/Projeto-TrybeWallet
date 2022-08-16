@@ -1,4 +1,4 @@
-// Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
+// Esse reducer será responsável por tratar de todas as informações relacionadas às despesas
 import { SAVE_CURRENCIES, SAVE_EXPENSES, DELETE_EXPENSE } from '../actions';
 
 const INITIAL_STATE = {
