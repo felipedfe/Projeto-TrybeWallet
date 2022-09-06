@@ -9,7 +9,8 @@ class Login extends React.Component {
     this.state = {
       email: '',
       senha: '',
-      isDisabled: true,
+      login: false,
+      validPassWord: false,
     };
   }
 
@@ -19,7 +20,7 @@ class Login extends React.Component {
       [name]: value,
     }, () => {
       this.setState({
-        isDisabled: this.inputValidation(),
+        login: this.inputValidation(),
       });
     });
   }
@@ -34,9 +35,15 @@ class Login extends React.Component {
     const MIN_PASSWORD_LENGTH = 6;
     if (senha.length >= MIN_PASSWORD_LENGTH
       && this.validateEmail(email)) {
-      return false;
+      this.setState({
+        validPassWord: true,
+      });
+      return true;
     }
-    return true;
+    this.setState({
+      validPassWord: false,
+    });
+    return false;
   }
 
   loginWallet = () => {
@@ -47,34 +54,45 @@ class Login extends React.Component {
   }
 
   render() {
-    const { email, senha, isDisabled } = this.state;
+    const { email, senha, login, validPassWord } = this.state;
 
     return (
-      <div className="login-container">
-        <input
-          type="text"
-          name="email"
-          value={ email }
-          onChange={ this.handleChange }
-          data-testid="email-input"
-          placeholder="E-mail"
-        />
-        <input
-          type="text"
-          name="senha"
-          value={ senha }
-          onChange={ this.handleChange }
-          data-testid="password-input"
-          placeholder="Senha"
-        />
-        <button
-          type="button"
-          disabled={ isDisabled }
-          onClick={ this.loginWallet }
-        >
-          Entrar
-        </button>
-      </div>
+      <main className="login-screen">
+        <div className="login-container">
+          <h1 className="login-title">LOGIN</h1>
+          <input
+            className="login-input"
+            type="text"
+            name="email"
+            value={ email }
+            onChange={ this.handleChange }
+            placeholder="E-mail"
+          />
+          <input
+            className="login-input"
+            type="text"
+            name="senha"
+            value={ senha }
+            onChange={ this.handleChange }
+            placeholder="Senha"
+          />
+          <button
+            className="login-input"
+            type="button"
+            disabled={ !login }
+            onClick={ this.loginWallet }
+          >
+            Entrar
+          </button>
+          <span className="password-msg">
+            {
+              validPassWord
+                ? ''
+                : '*A senha necessita de ao menos 6 caracteres'
+            }
+          </span>
+        </div>
+      </main>
     );
   }
 }

@@ -62,7 +62,6 @@ class Wallet extends React.Component {
               type="text"
               value={ value }
               onChange={ this.handleInputChange }
-              data-testid="value-input"
             />
           </label>
 
@@ -73,7 +72,6 @@ class Wallet extends React.Component {
               type="text"
               value={ description }
               onChange={ this.handleInputChange }
-              data-testid="description-input"
             />
           </label>
 
@@ -82,7 +80,6 @@ class Wallet extends React.Component {
             <select
               name="currency"
               id="moeda"
-              data-testid="currency-input"
               value={ currency }
               onChange={ this.handleInputChange }
             >
@@ -94,7 +91,6 @@ class Wallet extends React.Component {
 
           <label className="wallet-field" htmlFor="method-input">
             <select
-              data-testid="method-input"
               id="method-input"
               name="method"
               value={ method }
@@ -109,7 +105,6 @@ class Wallet extends React.Component {
           <label className="wallet-field" htmlFor="tag-input">
             <select
               className="wallet-field"
-              data-testid="tag-input"
               id="tag-input"
               name="tag"
               value={ tag }
