@@ -40,7 +40,6 @@ class Table extends React.Component {
                 <td>
                   <button
                     className="btn btn-danger"
-                    data-testid="delete-btn"
                     type="button"
                     onClick={ () => deleteExpense(despesa.id) }
                   >
