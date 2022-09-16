@@ -6,6 +6,7 @@ Uma aplicação que simula uma carteira de gastos de viagem. Cada compra pode te
 ## •Tecnologias e bibliotecas
 - Javascript
 - CSS
+- HTML
 - React
 - Redux
 
