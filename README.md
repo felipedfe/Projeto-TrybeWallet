@@ -1,4 +1,5 @@
 # Trybewallet
+![Tela da aplicação](https://github.com/felipedfe/felipedfe.github.io/blob/main/imagens/05-trybewallet.jpg)
 
 ## •Descrição
 Uma aplicação que simula uma carteira de gastos de viagem. Cada compra pode ter seu valor convertido para outra moeda utilizando o câmbio do momento em que ela é salva na carteira. Foi desenvolvida com React e Redux consumindo os dados da API de Cotações do *awesomeapi* (https://economia.awesomeapi.com.br/json/all)
