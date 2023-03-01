@@ -1,17 +1,17 @@
 # Trybewallet
 ![Tela da aplicação](https://github.com/felipedfe/felipedfe.github.io/blob/main/imagens/05-trybewallet.jpg)
 
-## •Descrição
-Uma aplicação que simula uma carteira de gastos de viagem. Cada compra pode ter seu valor convertido para outra moeda utilizando o câmbio do momento em que ela é salva na carteira. Foi desenvolvida com React e Redux consumindo os dados da API de Cotações do *awesomeapi* (https://economia.awesomeapi.com.br/json/all)
+## •Description
+An application that simulates a able expense. Each purchased item can have its value converted into another currency using the exchange rate at the time it was saved in the table. It was developed with React and Redux consuming data from the Quotes API of *awesomeapi* (https://economia.awesomeapi.com.br/json/all)
 
-## •Tecnologias e bibliotecas
+## •Technologies and Libraries
 - Javascript
 - CSS
 - HTML
 - React
 - Redux
 
-## •Executando a aplicação
-- Clone o repositório em sua máquina
-- No terminal, instale as dependência da aplicação: ```npm install```
-- Agora é só colocar a aplicação para rodar: ```npm start```
+## •How to run the application
+- Clone the repository on your machine
+- In the terminal, install the application's dependencies: `npm install`
+- Now just put the application to run!: `npm start`
